@@ -13,11 +13,17 @@ const images = [
   },
 ];
 
-const ul = document.querySelector(".gallery");
-for (let image of images) {
-  let li = document.createElement("li");
-  li.innerHTML = `
-    <img src="${image.url}" alt="${image.alt}"/>
-    `;
-  ul.appendChild(li);
+const gallery = document.querySelector('.gallery');
+
+let galleryHTML = '';
+
+for (let i = 0; i < images.length; i++) {
+  const image = images[i];
+  galleryHTML += `
+    <li class="gallery-item">
+      <img src="${image.url}" alt="${image.alt}">
+    </li>
+  `;
 }
+
+gallery.insertAdjacentHTML('beforeend', galleryHTML);
